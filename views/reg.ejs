@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div style="text-align:center">
+        <form action="/reg" method="post">
+            用户名：<input type="text" name="uname" id="u1"><br/>
+            密码：<input type="password" name="pass"><br/>
+            <input type="submit" name="sub" value="注册">
+        </form>
+    </div>
+
+    <script src="javascripts/jquery.min.js"></script>
+
+    <script>
+        // axios
+        $("#u1").blur(function(){
+            var val = $(this).val();
+            // console.log(val);
+            $.post('/checkname',"value="+val,function(data){
+                // console.log(data);
+                if(data=="success"){
+                    $("#u1").after("<span id='s1'>用户名重名</span>");
+                }
+                if(data=="error"){
+                    $("#s1").remove();
+                }
+            },'text');
+        });
+    </script>
+
+</body>
+</html>
