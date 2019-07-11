@@ -7,15 +7,15 @@ var Blog = require("../controller/blog.js");
   res.render('index', { title: 'Express' });
 });*/
 
-function checkLogin(req,res,next){
-  if(req.session){
-    next();
-  }else{
-    res.redirect("/login");
-  }
-};
+// function checkLogin(req,res,next){
+//   if(req.session){
+//     next();
+//   }else{
+//     res.redirect("/login");
+//   }
+// };
 
-router.get('/',checkLogin);
+// router.get('/',checkLogin);
 router.get('/',Blog.index);
 
 

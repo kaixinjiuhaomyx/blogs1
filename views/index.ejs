@@ -5,8 +5,18 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head> 
   <body>
-    <h1><%= title %></h1>
+    <!-- <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
     <a href="/unlogin">注销</a>
+    <p><%= sess.flag%></p> -->
+
+    <p><%= sess.pass%></p> 
+    <hr/>
+    
+    <% posts.forEach(function(post,index){ %>
+      <h3>标题：<%= post.title %></h3>
+      <p>内容 <%= post.content%></p>
+    <% }) %>
+
   </body>
 </html>
